@@ -1,0 +1,60 @@
+section{
+    width: 98%;
+    margin: auto;
+    margin-top: 5%;
+    /* display: grid; */
+    display: flex;
+    margin-right: -5%;
+    flex-wrap: wrap;
+    background-color: antiquewhite;
+    border-radius: 30px;
+}
+
+.cards{
+    width: 280px;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-right: 30px;
+    height: 380px;
+}
+.cards:hover{
+    box-shadow: 0 2px 12px 10px  rgb(245, 207, 170);
+    cursor: pointer;
+}
+.image_box img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+.details .title{
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(0, 0, 0);
+}
+.details .author{
+    color: grey;
+    font-size: 0.8rem;
+    margin-bottom: 10px;    
+}
+
+.details .price{
+    font-weight: bold;
+    color: rgb(212, 45, 45);
+    margin-bottom: 10px;
+    font-size: 1.3vmax;
+}
+.details button{
+    padding: 5px 10px;
+    border: none;
+    font-weight: bold;
+    background-color: rgb(189, 189, 186);
+    outline: none;
+    border-radius: 2px;
+    border-radius: 8px;
+    cursor: pointer;
+}
