@@ -48,11 +48,14 @@
 
 .App {
   text-align:justify;
+  background-color: antiquewhite;
+  height: 100%;
 }
 
 nav {
   background-color:pink;
   padding: 1em;
+  /* backdrop-filter: blur(10px); */
 }
 
 nav ul {
