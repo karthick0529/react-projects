@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+}
+
+.add-color {
+  display: flex;
+  gap: 40px;
+  row-gap: 5px;
+}
