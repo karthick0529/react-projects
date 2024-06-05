@@ -60,8 +60,8 @@ html, body {
 
 nav {
   background-color:pink;
-  padding: 1em;
-  /* backdrop-filter: blur(10px); */
+  padding: 5px;
+  
 }
 
 nav ul {

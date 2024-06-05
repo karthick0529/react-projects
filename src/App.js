@@ -252,6 +252,11 @@ export default function App() {
 
   return (
     <div className="App">
+
+      <header>
+        <Home />
+      </header>
+
       <nav>
         <ul>
           {/* Link change page without refresh */}
