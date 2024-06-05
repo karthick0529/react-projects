@@ -269,6 +269,7 @@ export default function App() {
         <Route path="/add-color" element={<AddColor />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      
     </div>
   );
   //JSX ends
