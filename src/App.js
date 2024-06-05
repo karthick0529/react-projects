@@ -1,10 +1,10 @@
-import { useState } from "react"
 import { AddColor } from "./AddColor";
 import "./App.css";
-import { Counter } from "./Counter";
-import { Routes, Route, Link } from "react-router-dom"
+import { Routes, Route, Link, useParams } from "react-router-dom"
+import { MovieList } from "./components/MovieList";
+import { Home } from "./components/Home";
 
-const INITIAL_MOVIE_LIST = [
+export const INITIAL_MOVIE_LIST = [
   {
     name: "Brigerton",
     poster: "http://image.tmdb.org/t/p/original//luoKpgVwi1E5nQsi7W0UuKHu2Rq.jpg",
@@ -271,57 +271,16 @@ export default function App() {
   //JSX ends
 }
 
-
-function Home() {
-  const headerStyle ={
-      textAlign:"center",
-      backgroundColor: "rgb(111, 53, 111)",
-      color:"white",
-  }
-
+function MovieDetails() {
+  const { movieid } = useParams()
   return (
-    <h1 style={headerStyle}>Welcome to Netflix App</h1>
+    <h1>Movies Detail Page - {movieid}</h1>
   )
 }
 
-function MovieList() {
-  const movieList = INITIAL_MOVIE_LIST
+function NotFoundPage() {
   return (
-    <div className="movie-list">
-      {movieList.map((mv) => (
-        <Movie movie={mv} />
-      ))}
-    </div>
+    <img src="https://cdn.svgator.com/images/2024/04/detective-animation-404-error-page.gif" alt="404" />
   )
 }
 
-
-function Movie({ movie }) {
-  console.log(movie.poster)
-
-  const [show, setShow] = useState(true)
-
-  const ratingStyles = {
-    color: movie.rating <= 4.5 ? "red" : "green"
-  }
-
-  // const summaryStyle = {
-  //   display: show ? "block" : "none"
-  // }
-  return (
-    <div className="movie-card">
-      <img className="movie-poster" src={movie.poster} alt={movie.name} />
-      <div className="movie-spec">
-        <h2>{movie.name}</h2>
-        <h3 style={ratingStyles}>⭐{movie.rating}</h3>
-      </div>
-      <button onClick={() => setShow(!show)} >Toggle description</button>
-      {/* <p style={summaryStyle} className="movie-summary">{movie.summary}</p> */}
-      {show ? <p className="movie-summary">{movie.summary}</p> : ""}
-      <div className="movie-footer">
-        <Counter />
-        <button className="movie-button">Watch Now</button>
-      </div>
-    </div>
-  )
-}
