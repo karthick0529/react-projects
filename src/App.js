@@ -258,13 +258,16 @@ export default function App() {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/movies">MovieList</Link></li>
           <li><Link to="/add-color">AddColor</Link></li>
+          <li><Link to="/somewhere">Somewhere</Link></li>
         </ul>
       </nav>
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<MovieList />} />
+        <Route path="/movies/:movieid" element={<MovieDetails />} />
         <Route path="/add-color" element={<AddColor />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );
