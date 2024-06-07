@@ -48,7 +48,7 @@ function Card() {
                     <div className="h5 mb-0 font-weight-bold text-gray-800">
                       {item.amount}
                     </div>
-                    {item.text === "Tasks" && show && (
+                    {item.text === "Tasks" && show ? (
                       <div className="progress progress-sm ml-2 flex-grow-1">
                         <div
                           className="progress-bar bg-info"
@@ -59,7 +59,7 @@ function Card() {
                           aria-valuemax="100"
                         ></div>
                       </div>
-                    )}
+                    ): null}
                   </div>
                   </div>
                   <div className="col-auto">
