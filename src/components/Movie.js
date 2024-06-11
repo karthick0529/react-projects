@@ -19,9 +19,10 @@ export function Movie({ movie,id }) {
     color: movie.rating <= 4.5 ? "red" : "green"
   };
 
-  const summaryStyle = {
-    display: show ? "block" : "none"
-  }
+  // const summaryStyle = {
+  //   display: show ? "block" : "none"
+  // }
+  
   return (
     <div className="movie-card">
       <img className="movie-poster" src={movie.poster} alt={movie.name} />
