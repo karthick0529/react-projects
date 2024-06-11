@@ -1,8 +1,14 @@
-import "./App.css";
+import React from 'react';
+import './App.css';
 import Sidebar from "./components/Sidebar";
-import Topbar from "./components/Topbar";
-import Dashboard from "./components/Dashboard";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import Topbar from './components/Topbar';
+import Dashboard from './components/Dashboard';
+import {
+  BrowserRouter,
+  Switch,
+  Route
+} from "react-router-dom";
+import Table from './components/Table';
 
 function App() {
   return (
@@ -14,7 +20,8 @@ function App() {
             <Topbar />
             <div className="container-fluid">
               <Switch>
-                <Route exact={true} path="/" component={Dashboard} />
+                <Route exact path="/" component={Dashboard} />
+                <Route exact path="/tables" component={Table} />
               </Switch>
             </div>
           </div>

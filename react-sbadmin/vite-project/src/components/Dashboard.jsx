@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import ProjectDetails from "./ProjectDetails";
+import Chart from "./Chart";
 
 function Dashboard() {
   return (
@@ -11,15 +12,16 @@ function Dashboard() {
           href="#"
           className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
         >
-          <i className="fas fa-download fa-sm text-white-50"></i> Generate
-          Report
+          <i className="fas fa-download fa-sm text-white-50"></i> Generate Report
         </a>
       </div>
       <Card />
       <ProjectDetails />
+      <Chart />
+      <div>Debug: Dashboard is rendering</div>
     </div>
   );
 }
 
-
 export default Dashboard;
+
