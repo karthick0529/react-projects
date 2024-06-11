@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Counter } from "../Counter";
 import { useNavigate } from "react-router-dom"
+import InfoIcon from '@mui/icons-material/Info';
+import IconButton from '@mui/material/IconButton';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Button from '@mui/material/Button';
 
 
 export function Movie({ movie,id }) {
@@ -24,15 +29,29 @@ export function Movie({ movie,id }) {
         <h2>{movie.name}</h2>
         <h3 style={ratingStyles}>⭐{movie.rating}</h3>
       </div>
-      <button onClick={() => setShow(!show)}>Toggle description</button>
 
-      <button onClick={() => navigate("/movies/" + id)} >Info</button>
+      <IconButton
+        color="primary"
+        aria-label="toggleBtn"
+        onClick={() => setShow(!show)}
+      >
+        {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+      </IconButton>
+
+      <IconButton
+        color="primary"
+        aria-label="infoBtn"
+        onClick={() => navigate("/movies/" + id)}
+      >
+        <InfoIcon />
+      </IconButton>
+
       
       {/* <p style={summaryStyle} className="movie-summary">{movie.summary}</p> */}
       {show ? <p className="movie-summary">{movie.summary}</p> : ""}
       <div className="movie-footer">
         <Counter />
-        <button className="movie-button">Watch Now</button>
+        <Button variant="outlined" className="movie-button">Watch Now</Button>
       </div>
     </div>
   );

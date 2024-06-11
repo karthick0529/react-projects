@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Sample } from "./Sample";
+import IconButton from '@mui/material/IconButton';
+import Badge from '@mui/material/Badge';
+
 
 // Counter Function with Like and Dislike buttons with Sample as Probs for Counter
 export function Counter() {
@@ -9,21 +12,32 @@ export function Counter() {
   console.log("Updated Dislike", dislike);
   return (
     <div>
-      <button
+
+      <IconButton
+        color="primary"
+        aria-label="likeBtn"
         onClick={() => {
           setLike(like + 1);
-          console.log(like);
         }}
-      >
-        👍 {like}
-      </button>
-      <button
+      > 
+        <Badge badgeContent={like} color="primary">
+        👍
+        </Badge>
+      </IconButton>
+
+      <IconButton
+        color="primary"
+        aria-label="dislikeBtn"
         onClick={() => {
           setDislike(dislike + 1);
         }}
       >
-        👎 {dislike}
-      </button>
+         
+        <Badge badgeContent={dislike} color="error">
+        👎
+        </Badge>
+      </IconButton>
+
       <Sample lk={like} dk={dislike} />
     </div>
   );

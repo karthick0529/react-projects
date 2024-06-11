@@ -2,14 +2,15 @@ import { INITIAL_MOVIE_LIST } from "../App";
 import { Movie } from "./Movie";
 import { useState } from "react";
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 export function MovieList() {
   const [movieList, setMovieList] = useState(INITIAL_MOVIE_LIST);
 
-  const [name, setName] = useState("Gravity")
-  const [poster, setPoster] = useState("https://upload.wikimedia.org/wikipedia/en/f/f6/Gravity_Poster.jpg")
-  const [rating, setRating] = useState(5)
-  const [summary, setSummary] = useState("Dr. Ryan Stone (Sandra Bullock) is a medical engineer on her first shuttle mission. Her commander is veteran astronaut Matt Kowalsky (George Clooney)")
+  const [name, setName] = useState("")
+  const [poster, setPoster] = useState("")
+  const [rating, setRating] = useState()
+  const [summary, setSummary] = useState("")
 
   
   return (
@@ -28,20 +29,9 @@ export function MovieList() {
         <TextField id="Summary" label="Summary" variant="outlined" value={summary}
           onChange={(event) => setSummary(event.target.value)}
         />
-
-
-        <input type="text" value={name}
-          onChange={(event) => setName(event.target.value)} placeholder="Enter name" />
-        <input type="text" value={poster}
-          onChange={(event) => setPoster(event.target.value)} placeholder="Enter poster" />
-        <input type="text" value={rating}
-          onChange={(event) => setRating(event.target.value)} placeholder="Enter rating" />
-        <input type="text" value={summary}
-          onChange={(event) => setSummary(event.target.value)} placeholder="Enter summary" />
         {/* copy movieList and add newMovie */}
 
-        <button
-          onClick={() => {
+        <Button variant="contained" onClick={() => {
             const newMovie = {
               name,
               poster,
@@ -51,7 +41,9 @@ export function MovieList() {
             setMovieList([...movieList, newMovie])
           }
           }
-        >Add Movie</button>
+          >Add Movie</Button>
+
+        
       </div> 
       <div className="movie-list">
         {movieList.map((mv, index) => (
