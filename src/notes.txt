@@ -181,3 +181,8 @@ function Sample({ lk, dk }) {
 // function Sample1({ dk }) {
 //   return <div>Dislike value is {dk}</div>;
 // }
+
+
+{
+    "git.ignoreLimitWarning": true
+}
