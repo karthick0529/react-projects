@@ -29,7 +29,7 @@ function Sample() {
 function Sample1() {
     const name = useContext(NameContext)
     return (
-        <h1>I'm a Peaky Bliner {name} boy.</h1>
+        <h1>I'm a Peaky Blinder {name} boy.</h1>
     )
 }
 

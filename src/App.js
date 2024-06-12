@@ -12,6 +12,10 @@ import ExampleContext from './components/context/ExampleContext';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
+import AddMovie from "./components/AddMovie";
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Ref from "./components/hooks/Ref";
 
 export const INITIAL_MOVIE_LIST = [
   {
@@ -260,11 +264,12 @@ export default function App() {
 //Lifting the state up from child componet to parent component
   const [movieList, setMovieList] = useState(INITIAL_MOVIE_LIST);
   const navigate = useNavigate();    
+  const [mode, setMode] = useState("light")
   
   //1. creating a context - createTheme
   const darkTheme = createTheme({
     palette: {
-      mode: 'light',
+      mode: mode,
     },
   });
 
@@ -275,14 +280,21 @@ export default function App() {
       <CssBaseline />
       <div className="App">
 
-      <AppBar position="static">
+      <AppBar position="static" style = {{marginbottomm: "20px"}}>
       <Toolbar>
 
       <Button color="inherit" onClick = {() => navigate("/")}>Home</Button>
       <Button color="inherit" onClick = {() => navigate("/movies")}>MovieList</Button>
+      <Button color="inherit" onClick = {() => navigate("/add-movie")}>Addmovie</Button>
       <Button color="inherit" onClick = {() => navigate("/add-color")}>AddColor</Button>
       <Button color="inherit" onClick = {() => navigate("/context")}>ExampleContext</Button>
       <Button color="inherit" onClick = {() => navigate("/somewhere")}>Somewhere</Button>
+      <Button color="inherit" onClick = {() => navigate("/ref")}>Reference</Button>
+      {/* <Button color="inherit" onClick = {() => setMode(mode === "light" ? "dark": "light")}>{mode === "light" ? "dark": "light"}Mode</Button> */}
+      {/* using MUI Component */}
+      <Button color="inherit" onClick = {() => setMode(mode === "light" ? "dark": "light")} 
+      endIcon = {mode === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}>
+      {mode === "light" ? "dark": "light"}Mode</Button>
 
       </Toolbar>
       </AppBar>
@@ -301,10 +313,12 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<MovieList  movieList = {movieList} setMovieList = {setMovieList}/>} />
+        <Route path="/add-movie" element={<AddMovie movieList = {movieList} setMovieList = {setMovieList}/>} />
         <Route path="/movies/:movieid" element={<MovieDetails movieList = {movieList}/>} />
         <Route path="/add-color" element={<AddColor />} />
         <Route path="/context" element={<ExampleContext />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/ref" element={<Ref />} />
       </Routes>
     
     </div>
