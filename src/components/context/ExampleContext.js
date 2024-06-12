@@ -1,9 +1,9 @@
 import React, { useState, createContext, useContext } from 'react'
 
 
-//1. creating  => createContext ✅
-//2. publisher => provider -context.Provider ✅
-//3. subscriber => useContext => useContext(context)
+//1. creating  => createContext ✔️
+//2. publisher => provider -context.Provider ✔️
+//3. subscriber => useContext => useContext(context)✔️
 
 const NameContext = createContext()
 
