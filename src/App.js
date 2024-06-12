@@ -1,15 +1,24 @@
 import { AddColor } from "./AddColor";
 import "./App.css";
-import { Routes, Route, Link, useParams } from "react-router-dom"
+import { Routes, Route, Link, useNavigate } from "react-router-dom"
 import { MovieList } from "./components/MovieList";
 import { Home } from "./components/Home";
+import { MovieDetails } from "./components/MovieDetails";
+import { NotFoundPage } from "./components/NotFoundPage";
+import { useState } from "react";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import ExampleContext from './components/context/ExampleContext';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
 
 export const INITIAL_MOVIE_LIST = [
   {
     name: "Brigerton",
     poster: "http://image.tmdb.org/t/p/original//luoKpgVwi1E5nQsi7W0UuKHu2Rq.jpg",
     rating: 4,
-    trailer: "https://youtu.be/gpv7ayf_tyE",
+    trailer: "https://www.youtube.com/embed/gpv7ayf_tyE",
     summary: "Bridgerton follows Daphne Bridgerton (Phoebe Dynevor), the eldest daughter of the powerful Bridgerton family as she makes her debut onto Regency London's competitive marriage market. Hoping to follow in her parent's footsteps and find Link match sparked by true love, Daphne's prospects initially seem to be unrivaled.",
     cast: {
       actor: "Nicola Coughlan",
@@ -17,11 +26,10 @@ export const INITIAL_MOVIE_LIST = [
     },
     duration: "60min"
   },
-  {
-    name: "Lucifer",
+  { name: "Lucifer",
     poster: "http://image.tmdb.org/t/p/original//ekZobS8isE6mA53RAiGDG93hBxL.jpg",
     rating: 4.7,
-    trailer: "https://youtu.be/X4bF_quwNtw",
+    trailer: "https://www.youtube.com/embed/X4bF_quwNtw",
     summary: "Lucifer Morningstar (Tom Ellis) is the devil. He's tired of Hell and takes Link break in L.A. He's running his nightclub Lux with demon disciple Mazikeen (Lesley-Ann Brandt). His brother Amenadiel (D.B. Woodside) demands that he returns to Hell.",
     cast: {
       actor: "Tom Ellis",
@@ -33,7 +41,7 @@ export const INITIAL_MOVIE_LIST = [
     name: "Journey 2",
     poster: "https://upload.wikimedia.org/wikipedia/en/8/8e/Journey_2_Poster.jpg",
     rating: 5.7,
-    trailer: "https://www.youtube.com/watch?v=Q2JMEKIf5VU",
+    trailer: "https://www.youtube.com/embed/Q2JMEKIf5VU",
     summary: "Now 17, Sean Anderson (Josh Hutcherson) receives a coded distress signal from an island where none should exist. Knowing that he will not be able to dissuade Sean from tracking the signal to its source, Hank (Dwayne Johnson), Sean's new stepfather, joins the teen on a quest to the South Pacific. Together with helicopter pilot Gabato (Luis Guzmán) and Gabato's feisty daughter, Kailani (Vanessa Hudgens), they set out to find the island and rescue its sole human inhabitant (Michael Caine).",
     cast: {
       actor: "Dwayne Johnson",
@@ -249,43 +257,64 @@ export const INITIAL_MOVIE_LIST = [
 
 
 export default function App() {
+//Lifting the state up from child componet to parent component
+  const [movieList, setMovieList] = useState(INITIAL_MOVIE_LIST);
+  const navigate = useNavigate();    
+  
+  //1. creating a context - createTheme
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'light',
+    },
+  });
 
   return (
-    <div className="App">
+  
+    //2. publisher - provider - context.provider -ThemeProvider
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <div className="App">
 
-      <nav>
+      <AppBar position="static">
+      <Toolbar>
+
+      <Button color="inherit" onClick = {() => navigate("/")}>Home</Button>
+      <Button color="inherit" onClick = {() => navigate("/movies")}>MovieList</Button>
+      <Button color="inherit" onClick = {() => navigate("/add-color")}>AddColor</Button>
+      <Button color="inherit" onClick = {() => navigate("/context")}>ExampleContext</Button>
+      <Button color="inherit" onClick = {() => navigate("/somewhere")}>Somewhere</Button>
+
+      </Toolbar>
+      </AppBar>
+
+      {/* <nav>
         <ul>
-          {/* Link change page without refresh */}
+          Link change page without refresh
           <li><Link to="/">Home</Link></li>
           <li><Link to="/movies">MovieList</Link></li>
           <li><Link to="/add-color">AddColor</Link></li>
+          <li><Link to="/context">ExampleContext</Link></li>
           <li><Link to="/somewhere">Somewhere</Link></li>
         </ul>
-      </nav>
+      </nav> */}
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<MovieList />} />
-        <Route path="/movies/:movieid" element={<MovieDetails />} />
+        <Route path="/movies" element={<MovieList  movieList = {movieList} setMovieList = {setMovieList}/>} />
+        <Route path="/movies/:movieid" element={<MovieDetails movieList = {movieList}/>} />
         <Route path="/add-color" element={<AddColor />} />
+        <Route path="/context" element={<ExampleContext />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      
+    
     </div>
+    </ThemeProvider>
+
+
+
+    
   );
   //JSX ends
 }
 
-function MovieDetails() {
-  const { movieid } = useParams()
-  return (
-    <h1>Movies Detail Page - {movieid}</h1>
-  )
-}
-
-function NotFoundPage() {
-  return (
-    <img src="https://cdn.svgator.com/images/2024/04/detective-animation-404-error-page.gif" alt="404" />
-  )
-}
 

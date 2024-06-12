@@ -42,7 +42,7 @@ export function Movie({ movie,id }) {
       <IconButton
         color="primary"
         aria-label="infoBtn"
-        onClick={() => navigate("/movies/" + id)}
+        onClick={() => navigate (`/movies/${id}`)}
       >
         <InfoIcon />
       </IconButton>

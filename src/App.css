@@ -2,7 +2,6 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: rgb(236, 232, 232); 
 }
 
 .add-color {
@@ -51,14 +50,14 @@ html, body {
   font-size: 20px;
 }
 
-/* App.css */
+App.css */
 
-.App {
+ .App {
   text-align:justify;
   height: 100%;
-}
+} 
 
-nav {
+ nav {
   background-color:pink;
   padding: 1px;
   
@@ -82,7 +81,7 @@ nav a {
 
 nav a:hover {
   text-decoration: underline;
-}
+}  
 
 .add-movie-form {
   display: flex;

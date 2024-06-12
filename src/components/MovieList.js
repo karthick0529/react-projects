@@ -1,12 +1,11 @@
-import { INITIAL_MOVIE_LIST } from "../App";
+// import { INITIAL_MOVIE_LIST } from "../App";
 import { Movie } from "./Movie";
 import { useState } from "react";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-export function MovieList() {
-  const [movieList, setMovieList] = useState(INITIAL_MOVIE_LIST);
-
+export function MovieList({movieList, setMovieList}) {
+  
   const [name, setName] = useState("")
   const [poster, setPoster] = useState("")
   const [rating, setRating] = useState()
