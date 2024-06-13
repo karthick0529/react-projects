@@ -2,219 +2,73 @@ import React from "react";
 import "./App.css";
 
 function App() {
+  const plans = [
+    {
+      title: "FREE",
+      price: "$0/month",
+      features: [
+        { name: "Single User", available: true },
+        { name: "50GB Storage", available: true },
+        { name: "Unlimited Public Projects", available: true },
+        { name: "Community Access", available: true },
+        { name: "Unlimited Private Projects", available: false },
+        { name: "Dedicated Phone Support", available: false },
+        { name: "Free Subdomain", available: false },
+        { name: "Monthly Status Reports", available: false },
+      ],
+    },
+    {
+      title: "PLUS",
+      price: "$9/month",
+      features: [
+        { name: "5 Users", available: true },
+        { name: "50GB Storage", available: true },
+        { name: "Unlimited Public Projects", available: true },
+        { name: "Community Access", available: true },
+        { name: "Unlimited Private Projects", available: true },
+        { name: "Dedicated Phone Support", available: true },
+        { name: "Free Subdomain", available: true },
+        { name: "Monthly Status Reports", available: false },
+      ],
+    },
+    {
+      title: "PRO",
+      price: "$49/month",
+      features: [
+        { name: "Unlimited Users", available: true },
+        { name: "50GB Storage", available: true },
+        { name: "Unlimited Public Projects", available: true },
+        { name: "Community Access", available: true },
+        { name: "Unlimited Private Projects", available: true },
+        { name: "Dedicated Phone Support", available: true },
+        { name: "Free Subdomain", available: true },
+        { name: "Monthly Status Reports", available: true },
+      ],
+    },
+  ];
+
   return (
-    <section class="pricing py-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="card mb-5 mb-lg-0">
-              <div class="card-body">
-                <h5 class="card-title text-muted text-uppercase text-center">
-                  Free
-                </h5>
-                <h6 class="card-price text-center">
-                  $0<span class="period">/month</span>
-                </h6>
-                <hr />
-                <ul class="fa-ul">
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    Single User
-                  </li>
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    5GB Storage
-                  </li>
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    Unlimited Public Projects
-                  </li>
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    Community Access
-                  </li>
-                  <li class="text-muted">
-                    <span class="fa-li">
-                      <i class="fas fa-times"></i>
-                    </span>
-                    Unlimited Private Projects
-                  </li>
-                  <li class="text-muted">
-                    <span class="fa-li">
-                      <i class="fas fa-times"></i>
-                    </span>
-                    Dedicated Phone Support
-                  </li>
-                  <li class="text-muted">
-                    <span class="fa-li">
-                      <i class="fas fa-times"></i>
-                    </span>
-                    Free Subdomain
-                  </li>
-                  <li class="text-muted">
-                    <span class="fa-li">
-                      <i class="fas fa-times"></i>
-                    </span>
-                    Monthly Status Reports
-                  </li>
-                </ul>
-                <div class="d-grid">
-                  <a href="#" class="btn btn-primary text-uppercase">
-                    Button
-                  </a>
-                </div>
-              </div>
-            </div>
+    <div className="App">
+      <div className="pricing-cards">
+        {plans.map((plan) => (
+          <div className="card" key={plan.title}>
+            <h2>{plan.title}</h2>
+            <h3>{plan.price}</h3>
+            <ul>
+              {plan.features.map((feature) => (
+                <li
+                  key={feature.name}
+                  className={feature.available ? "available" : "unavailable"}
+                >
+                  {feature.name}
+                </li>
+              ))}
+            </ul>
+            <button>BUTTON</button>
           </div>
-
-          <div class="col-lg-4">
-            <div class="card mb-5 mb-lg-0">
-              <div class="card-body">
-                <h5 class="card-title text-muted text-uppercase text-center">
-                  Plus
-                </h5>
-                <h6 class="card-price text-center">
-                  $9<span class="period">/month</span>
-                </h6>
-                <hr />
-                <ul class="fa-ul">
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    <strong>5 Users</strong>
-                  </li>
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    50GB Storage
-                  </li>
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    Unlimited Public Projects
-                  </li>
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    Community Access
-                  </li>
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    Unlimited Private Projects
-                  </li>
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    Dedicated Phone Support
-                  </li>
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    Free Subdomain
-                  </li>
-                  <li class="text-muted">
-                    <span class="fa-li">
-                      <i class="fas fa-times"></i>
-                    </span>
-                    Monthly Status Reports
-                  </li>
-                </ul>
-                <div class="d-grid">
-                  <a href="#" class="btn btn-primary text-uppercase">
-                    Button
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title text-muted text-uppercase text-center">
-                  Pro
-                </h5>
-                <h6 class="card-price text-center">
-                  $49<span class="period">/month</span>
-                </h6>
-                <hr />
-                <ul class="fa-ul">
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    <strong>Unlimited Users</strong>
-                  </li>
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    150GB Storage
-                  </li>
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    Unlimited Public Projects
-                  </li>
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    Community Access
-                  </li>
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    Unlimited Private Projects
-                  </li>
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    Dedicated Phone Support
-                  </li>
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    <strong>Unlimited</strong> Free Subdomains
-                  </li>
-                  <li>
-                    <span class="fa-li">
-                      <i class="fas fa-check"></i>
-                    </span>
-                    Monthly Status Reports
-                  </li>
-                </ul>
-                <div class="d-grid">
-                  <a href="#" class="btn btn-primary text-uppercase">
-                    Button
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }
 
