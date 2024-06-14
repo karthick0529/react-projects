@@ -1,55 +1,78 @@
-import React , {useState} from 'react';
-import Navbar from './components/Navbar';
-import Amazon from './components/Amazon';
-import Cart from './components/Cart';
-import './styles/amazon.css';
+import './App.css'
+import Footer from './Footer'
+import Header from './Header'
 
-const App = () => {
-	const [show, setShow] = useState(true);
-	const [cart , setCart] = useState([]);
-	const [warning, setWarning] = useState(false);
+export const data_list = [
+  {
+    sale:"",
+    name: "Fancy Product",
+    star:"",
+    price1 : "$40.00 - $80.00",
+    price2 : ""
+  },
+  {
+    sale:"sale",
+    name: "Special Item",
+    star:"star",
+    price1 : "$20.00",
+    price2 : "$18.00"
+  },
+  {
+    sale:"sale",
+    name: "Sale Item",
+    star:"",
+    price1 : "$50.00",
+    price2 : "$25.00"
+  },
+  {
+    sale:"",
+    name: "Popular Item",
+    star:"star",
+    price1 : "$40.00",
+    price2 : ""
+  },
+  {
+    sale:"sale",
+    name: "Sale Item",
+    star:"",
+    price1 : "$50.00",
+    price2 : "$25.00"
+  },
+  {
+    sale:"",
+    name: "Fancy Product",
+    star:"",
+    price1 : "$120.00 - $280.00",
+    price2 : ""
+  },
+  {
+    sale:"",
+    name: "Popular Item",
+    star:"star",
+    price1 : "$40.00",
+    price2 : ""
+  },
+  {
+    sale:"sale",
+    name: "Special Item",
+    star:"star",
+    price1 : "$20.00",
+    price2 : "$18.00"
+  }
+]
 
-	const handleClick = (item)=>{
-		let isPresent = false;
-		cart.forEach((product)=>{
-			if (item.id === product.id)
-			isPresent = true;
-		})
-		if (isPresent){
-			setWarning(true);
-			setTimeout(()=>{
-				setWarning(false);
-			}, 2000);
-			return ;
-		}
-		setCart([...cart, item]);
-	}
 
-	const handleChange = (item, d) =>{
-		let ind = -1;
-		cart.forEach((data, index)=>{
-			if (data.id === item.id)
-				ind = index;
-		});
-		const tempArr = cart;
-		tempArr[ind].amount += d;
-		
-		if (tempArr[ind].amount === 0)
-			tempArr[ind].amount = 1;
-		setCart([...tempArr])
-	}
+function App() {
 
   return (
-	<React.Fragment>
-		<Navbar size={cart.length} setShow={setShow} />
-		{
-			show ? <Amazon handleClick={handleClick} /> : <Cart cart={cart} setCart={setCart} handleChange={handleChange} />
-		}
-		{
-			warning && <div className='warning'>Item is already added to your cart</div>
-		}
-	</React.Fragment>
+    <div className='All-Container'>
+      <Header/>
+      <Footer/>
+    </div>
   )
 }
+
+
+
 
 export default App
