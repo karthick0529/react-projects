@@ -1,7 +1,7 @@
 import React from 'react'
-import './StyleCompo.css'
+import './StyleComposition.css'
 
-function StyleCompo() {
+function StyleComposition() {
   return (
     <div className='Style-compo-container'>
         <div className='Style-compo-detail'>
@@ -13,4 +13,4 @@ function StyleCompo() {
   )
 }
 
-export default StyleCompo
+export default StyleComposition

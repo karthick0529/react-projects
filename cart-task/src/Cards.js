@@ -24,7 +24,7 @@ const style_div_price = {
 }
 
 const add_on = {
-  backgroundColor : "green",
+  backgroundColor : "blue",
   color:"black",
   fontSize : "18px",
   transaction : "0.3s"
@@ -43,19 +43,19 @@ const remove_off = {
     <div className='Cards-Container'>
       <div className='Cards-Img-Container'>
         <div className='Cards-Img'>
-          <img src={pic} alt='DUMMY IMAGE' height="200px" width="300px"/></div>
-        {card_sale=="sale" ? <div className="top-right">Sale</div>:""}
+          <img src={pic} alt='DUMMY IMAGE' height="200px" width="250px"/></div>
+        {card_sale ==="sale" ? <div className="top-right">Sale</div>:""}
       </div>
       <div className='Cards-Content'>
       <h2>{card_data}</h2>
-        {card_star =="star" ?<p className='star'>
+        {card_star === "star" ?<p className='star'>
           <i className="fa fa-star fa-1.5x" aria-hidden="true"></i>
           <i className="fa fa-star fa-1.5x" aria-hidden="true"></i>
           <i className="fa fa-star fa-1.5x" aria-hidden="true"></i>
           <i className="fa fa-star fa-1.5x" aria-hidden="true"></i>
           <i className="fa fa-star fa-1.5x" aria-hidden="true"></i>
         </p>:""}
-        {card_price2 == "" ?
+        {card_price2 === "" ?
         <div>
           <p>{card_price1}</p>
         </div> :

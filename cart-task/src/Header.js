@@ -2,7 +2,7 @@ import React from 'react'
 import './Header.css'
 import { useState, useEffect } from 'react';
 import Cards from './Cards';
-import StyleCompo from './StyleCompo';
+import StyleComposition from './StyleComposition';
 import {data_list} from './App'
 
 
@@ -88,10 +88,10 @@ function Header() {
                 <button className='Navbar-Button'>Cart <i className="fa fa-shopping-cart" aria-hidden="true"></i><p className='value-button-cart'>{cart}</p></button>
             </div>
         </div> :""}
-    <StyleCompo/>
+    <StyleComposition/>
     <div className='Card-Container'>
     {data_list.map((ele,index)=>
-    <Cards key={index} addtocart={addtocart} removefromcart = {removefromcart} data={ele} pic={"https://cdn.pixabay.com/photo/2015/10/31/12/41/sale-1015710_1280.jpg"}/>
+    <Cards key={index} addtocart={addtocart} removefromcart = {removefromcart} data={ele} pic={"https://img.freepik.com/premium-photo/sale-word-cartoon-character-3d-illustration_764664-10431.jpg?w=826"}/>
     )}
     </div>
     </>
