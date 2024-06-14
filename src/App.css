@@ -93,3 +93,30 @@ nav a:hover {
   height:70%;
   margin-top: 30px;
 }
+
+.full-game {
+  text-align: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 5px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.game-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.game-box.winning {
+  background-color: rgb(175, 221, 241);
+  border: 2px solid black;
+}

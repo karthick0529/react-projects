@@ -16,6 +16,8 @@ import AddMovie from "./components/AddMovie";
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Ref from "./components/hooks/Ref";
+import Reducer from "./components/hooks/Reducer";
+import TicTacToe from "./components/TicTacToe";
 
 export const INITIAL_MOVIE_LIST = [
   {
@@ -290,6 +292,8 @@ export default function App() {
       <Button color="inherit" onClick = {() => navigate("/context")}>ExampleContext</Button>
       <Button color="inherit" onClick = {() => navigate("/somewhere")}>Somewhere</Button>
       <Button color="inherit" onClick = {() => navigate("/ref")}>Reference</Button>
+      <Button color="inherit" onClick = {() => navigate("/reducer")}>Reducer</Button>
+      <Button color="inherit" onClick = {() => navigate("/game")}>TicTacToe</Button>
       {/* <Button color="inherit" onClick = {() => setMode(mode === "light" ? "dark": "light")}>{mode === "light" ? "dark": "light"}Mode</Button> */}
       {/* using MUI Component */}
       <Button color="inherit" onClick = {() => setMode(mode === "light" ? "dark": "light")} 
@@ -319,6 +323,8 @@ export default function App() {
         <Route path="/context" element={<ExampleContext />} />
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/ref" element={<Ref />} />
+        <Route path="/reducer" element={<Reducer />} />
+        <Route path="/game" element={<TicTacToe />} />
       </Routes>
     
     </div>
