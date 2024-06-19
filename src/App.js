@@ -325,9 +325,9 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<MovieList  movieList = {movieList} setMovieList = {setMovieList}/>} />
-        <Route path="/add-movie" element={<AddMovie movieList = {movieList} setMovieList = {setMovieList}/>} />
-        <Route path="/movies/:movieid" element={<MovieDetails movieList = {movieList}/>} />
+        <Route path="/movies" element={<MovieList />} />
+        <Route path="/add-movie" element={<AddMovie movieList={movieList} setMovieList={setMovieList} />} />
+        <Route path="/movies/:movieid" element={<MovieDetails />} />
         <Route path="/add-color" element={<AddColor />} />
         <Route path="/context" element={<ExampleContext />} />
         <Route path="*" element={<NotFoundPage />} />

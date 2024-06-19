@@ -2,11 +2,23 @@ import { useParams } from "react-router-dom";
 import Button from '@mui/material/Button';
 import UndoIcon from '@mui/icons-material/Undo';
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export function MovieDetails({ movieList }) {
   const { movieid } = useParams();
   const movies = movieList[movieid]
   const navigate = useNavigate()
+
+  const [movie, setMovie] = useState({});
+
+  useEffect(() => {
+    fetch(`https://659e6ba547ae28b0bd35caec.mockapi.io/movies/${movieid}`, {
+      method: "GET"
+    })
+      .then((res) => res.json())
+      .then((data) => setMovie(data))
+  }, [])//call only once
+
   console.log(movies)
 
   return (
