@@ -34,7 +34,7 @@ function Home() {
     setCartItems(cartItems+1);
     setMainData (
       mainData.map((ele)=>{
-          if(ele.id == id){
+          if(ele.id === id){
             setCartList([...cartList,ele])
             return {...ele, inCart:true}
           }
@@ -50,7 +50,7 @@ function Home() {
     setCartItems(cartItems-1);
     setMainData (
       mainData.map((ele)=>{
-          if(ele.id == id){
+          if(ele.id === id){
               return {...ele, inCart:false}
           }
           else {
@@ -58,7 +58,7 @@ function Home() {
           }
       })
   )
-  const afterDelete = cartList.filter((ele)=> ele.id != id)
+  const afterDelete = cartList.filter((ele)=> ele.id !== id)
         setCartList(afterDelete)
   }
 
