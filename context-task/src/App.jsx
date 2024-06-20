@@ -5,7 +5,7 @@ import Navbar from './Components/Navbar'
 export const DataContext = createContext()
 export const CartContext = createContext()
 export const CartListContext = createContext()
-// export const ButtonChangePrizeContext = createContext()
+
 
 let data = [
   {
