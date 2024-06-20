@@ -169,7 +169,7 @@ function CartPage() {
                     </div>
                 </Grid>
                 <Grid item xs={12} style={{display:"flex",justifyContent:"center"}}>
-                    <Button variant="outlined" color="error" onClick={()=>{handleOnclickRemove(ele.id)}} endIcon={<DeleteIcon />}>Remove</Button>
+                    <Button variant="contained" color="error" onClick={()=>{handleOnclickRemove(ele.id)}} endIcon={<DeleteIcon />}>Remove</Button>
                 </Grid>
             </Grid>
         </Grid>
@@ -224,7 +224,7 @@ function CartPage() {
                         variant="filled"
                         sx={{ width: '100%' }}
                     >
-                        Successfully CheckedOut! You will redirected to Homepage.
+                        Successfully CheckedOut!
                     </Alert>
                 </Snackbar>
             </Grid>

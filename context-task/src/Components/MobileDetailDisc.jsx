@@ -163,8 +163,8 @@ function MobileDetailDisc() {
             </Grid>
         </Grid>
         <Grid item xs={12} sx={{display:"flex", justifyContent:"center"}}>
-          {mobile_data.inCart ? <Button size='small' onClick={()=> handleOnclickRemove(mobile_data.id)} variant="outlined" endIcon={<RemoveShoppingCartIcon />}>Remove From Cart</Button>:
-          <Button size='small' onClick={()=>handleOnclickAdd(mobile_data.id)} variant="outlined" endIcon={<AddShoppingCartIcon />}>Add to Cart</Button>}
+          {mobile_data.inCart ? <Button size='small' onClick={()=> handleOnclickRemove(mobile_data.id)} variant="contained" endIcon={<RemoveShoppingCartIcon />}>Remove From Cart</Button>:
+          <Button size='small' onClick={()=>handleOnclickAdd(mobile_data.id)} variant="contained" endIcon={<AddShoppingCartIcon />}>Add to Cart</Button>}
         </Grid>
       </Grid>
     </>

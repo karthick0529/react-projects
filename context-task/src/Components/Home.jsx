@@ -105,8 +105,8 @@ function Home() {
         </Grid>
       </CardContent>
     <CardActions sx={{display:"flex", justifyContent:"center", flexWrap:"wrap"}}>
-      {ele.inCart ? <Button size='small' onClick={()=> handleOnclickRemove(ele.id)} variant="outlined" endIcon={<RemoveShoppingCartIcon />} sx={{marginBottom:"10px"}}>Remove From Cart</Button>:
-      <Button size='small' onClick={()=>handleOnclickAdd(ele.id)} variant="outlined" endIcon={<AddShoppingCartIcon />} sx={{marginBottom:"10px"}}>Add to Cart</Button>} 
+      {ele.inCart ? <Button size='small' onClick={()=> handleOnclickRemove(ele.id)} variant="contained" endIcon={<RemoveShoppingCartIcon />} sx={{marginBottom:"10px"}}>Remove From Cart</Button>:
+      <Button size='small' onClick={()=>handleOnclickAdd(ele.id)} variant="contained" endIcon={<AddShoppingCartIcon />} sx={{marginBottom:"10px"}}>Add to Cart</Button>} 
     </CardActions>
   </Card>
 
