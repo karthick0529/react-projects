@@ -8,6 +8,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 
 
+
+
 export function Movie({ movie,id }) {
  
 
@@ -22,6 +24,8 @@ export function Movie({ movie,id }) {
   // const summaryStyle = {
   //   display: show ? "block" : "none"
   // }
+
+
   
   return (
     <div className="movie-card">
@@ -48,10 +52,16 @@ export function Movie({ movie,id }) {
       </IconButton>
 
       
+
+
+      
       {/* <p style={summaryStyle} className="movie-summary">{movie.summary}</p> */}
       {show ? <p className="movie-summary">{movie.summary}</p> : ""}
       <div className="movie-footer">
         <Counter />
+
+       
+
         <Button variant="outlined" className="movie-button">Watch Now</Button>
       </div>
     </div>

@@ -1,6 +1,9 @@
 // import { INITIAL_MOVIE_LIST } from "../App";
 import { Movie } from "./Movie";
 import { useState, useEffect } from "react";
+
+
+
 export function MovieList() {
 
   const [movieList, setMovieList] = useState([]);
@@ -15,7 +18,6 @@ export function MovieList() {
 
   console.log(movieList)
 
-  
   return (
     <div>
        
@@ -23,7 +25,10 @@ export function MovieList() {
         {movieList.map((mv, index) => (
           <Movie key={index} movie={mv} id={index} />
         ))}
+        
       </div>
+
+      
     </div>
   );
 }
