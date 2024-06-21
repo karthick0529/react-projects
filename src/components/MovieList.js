@@ -8,36 +8,49 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { useNavigate } from "react-router-dom";
-// import axios from "axios"
+import axios from "axios"
 
 export function MovieList() {
 
   const [movieList, setMovieList] = useState([]);
   const navigate = useNavigate()
 
-  // const getMovies = async () => {
-  //   try {
-  //     const response = await axios.get(`${API}`, {
-  //       method: "GET"
-  //     })
-  //     console.log(response.data)
-  //     setMovieList(response.data)
-  //   } catch (error) {
-  //     console.error("Error listing movies", error)
-  //   }
+  const getMovies = async () => {
+    try {
+      const response = await axios.get(`${API}`, {
+        method: "GET"
+      })
+      console.log(response.data)
+      setMovieList(response.data)
+    } catch (error) {
+      console.error("Error listing movies", error)
+    }
+  }
+
+
+  // const getMovies = async() => {
+  //   const response = await axios.get(`${API}`, {
+  //     method: "GET"
+  //   })
+  //   console.log(response.data)
+  //   setMovieList(response.data)
+      
   // }
 
 
 
-  const getMovies = () => {
-    fetch(`${API}`, {
-      method: "GET"
-    })
-      .then((res) => res.json())
-      .then((data) => setMovieList(data))
-  }
+  // const getMovies = () => {
+  //   fetch(`${API}`, {
+  //     method: "GET"
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => setMovieList(data))
+  // }
 
-  useEffect(() => getMovies(), [])//call only once
+  useEffect(() => {
+    getMovies();
+    return undefined;
+  }, []);//call only once
 
   console.log(movieList)
 

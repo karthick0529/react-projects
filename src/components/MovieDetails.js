@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { API } from "../global";
 import { MovieSharp } from "@mui/icons-material";
+import axios from "axios";
 
 
 export function MovieDetails() {
@@ -13,13 +14,32 @@ export function MovieDetails() {
 
   const [movies, setMovie] = useState({});
 
+  const getMovies = async () => {
+    try {
+      const response = await axios.get(`${API}/${movieid}`, {
+        method: "GET"
+      })
+    
+      console.log(response.data)
+      setMovie(response.data)
+    } catch (error) {
+      console.error("Error listing movies", error)
+    }
+  }
+
   useEffect(() => {
-    fetch(`${API}/${movieid}`, {
-      method: "GET"
-    })
-      .then((res) => res.json())
-      .then((data) => setMovie(data))
-  }, [])//call only once
+    getMovies();
+    return undefined;
+  }, []);//call only once
+
+
+  // useEffect(() => {
+  //   fetch(`${API}/${movieid}`, {
+  //     method: "GET"
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => setMovie(data))
+  // }, [])//call only once
 
 
   // const movies = movieList[movieid]

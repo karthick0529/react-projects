@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import { API } from '../global';
 import { useNavigate } from 'react-router-dom';
 
+
 function AddMovie() {
 
     const navigate = useNavigate()
@@ -13,6 +14,9 @@ function AddMovie() {
     const [poster, setPoster] = useState("")
     const [rating, setRating] = useState()
     const [summary, setSummary] = useState("")
+
+    
+    
 
     return (
         <div className="add-movie-form">
@@ -48,6 +52,7 @@ function AddMovie() {
                 .then((res) => res.json())
                     .then(() => navigate("/movies"))
                 // setMovieList([...movieList, newMovie])
+               
             }}>Add Movie</Button>
 
         </div>
