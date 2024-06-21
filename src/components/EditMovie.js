@@ -1,21 +1,42 @@
 import React from 'react'
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { API } from '../global';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useParams } from 'react-router-dom';
 
-function AddMovie() {
+export function EditMovie() {
+
+    const { movieid } = useParams()
+    const [movie, setMovie] = useState("");
+    
+
+    useEffect(() => {
+        fetch(`${API}/${movieid}`, {
+            method: "GET"
+        })
+            .then((res) => res.json())
+            .then((data) => setMovie(data))
+    }, [])//call only once
+
+    console.log(movie)
+    return movie ? <EditMovieForm movie={movie} /> : "Loading..."
+        
+}
+
+
+function EditMovieForm({ movie }){
+
+    const [name, setName] = useState(movie.name)
+    const [poster, setPoster] = useState(movie.poster)
+    const [rating, setRating] = useState(movie.rating)
+    const [summary, setSummary] = useState(movie.summary)
 
     const navigate = useNavigate()
 
-    const [name, setName] = useState("")
-    const [poster, setPoster] = useState("")
-    const [rating, setRating] = useState()
-    const [summary, setSummary] = useState("")
 
-    return (
-        <div className="add-movie-form">
+    return(
+        <div className="edit-movie-form">
             <TextField id="name" label="Name" variant="outlined" value={name}
                 onChange={(event) => setName(event.target.value)}
             />
@@ -31,27 +52,26 @@ function AddMovie() {
             
 
             <Button variant="contained" onClick={() => {
-                const newMovie = {
+                const editMovie = {
                     name,
                     poster,
                     rating,
                     summary
                 }
 
-                fetch(`${API}`, {
-                    method: "POST",
+                fetch(`${API}/${movie.id}`, {
+                    method: "PUT",
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify(newMovie)
+                    body: JSON.stringify(editMovie)
                 })
-                .then((res) => res.json())
+                    .then((res) => res.json())
                     .then(() => navigate("/movies"))
                 // setMovieList([...movieList, newMovie])
-            }}>Add Movie</Button>
+            }}>SAVE</Button>
 
         </div>
+
     )
 }
-
-export default AddMovie

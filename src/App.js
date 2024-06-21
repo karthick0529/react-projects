@@ -19,6 +19,7 @@ import Ref from "./components/hooks/Ref";
 import Reducer from "./components/hooks/Reducer";
 import TicTacToe from "./components/TicTacToe";
 import LifeCycleA from "./components/class/LifeCycleA";
+import {EditMovie} from "./components/EditMovie";
 
 
 // export const INITIAL_MOVIE_LIST = [
@@ -277,11 +278,13 @@ export default function App() {
     },
   });
 
-  useEffect(() => {
-    fetch("https://659e6ba547ae28b0bd35caec.mockapi.io/movies")
-      .then((res) => res.json())
-      .then((data) => setMovieList(data))
-  },[])
+  // useEffect(() => {
+  //   fetch("https://659e6ba547ae28b0bd35caec.mockapi.io/movies")
+  //     .then((res) => res.json())
+  //     .then((data) => setMovieList(data))
+  // },[])
+  
+  
   return (
   
     //2. publisher - provider - context.provider -ThemeProvider
@@ -326,8 +329,9 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<MovieList />} />
-        <Route path="/add-movie" element={<AddMovie movieList={movieList} setMovieList={setMovieList} />} />
+        <Route path="/add-movie" element={<AddMovie  />} />
         <Route path="/movies/:movieid" element={<MovieDetails />} />
+        <Route path="/movies/edit/:movieid" element={<EditMovie />} />
         <Route path="/add-color" element={<AddColor />} />
         <Route path="/context" element={<ExampleContext />} />
         <Route path="*" element={<NotFoundPage />} />
@@ -340,9 +344,6 @@ export default function App() {
     </div>
     </ThemeProvider>
 
-
-
-    
   );
   //JSX ends
 }

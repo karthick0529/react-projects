@@ -94,6 +94,16 @@ nav a:hover {
   margin-top: 30px;
 }
 
+.edit-movie-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 5px;
+  width:50%;
+  height:70%;
+  margin-top: 30px;
+}
+
 .full-game {
   text-align: center;
 }

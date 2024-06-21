@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 
 
 
-export function Movie({ movie,id }) {
+export function Movie({ movie,id,deleteButton,editButton }) {
  
 
   const [show, setShow] = useState(true);
@@ -59,7 +59,8 @@ export function Movie({ movie,id }) {
       {show ? <p className="movie-summary">{movie.summary}</p> : ""}
       <div className="movie-footer">
         <Counter />
-
+        {deleteButton}
+        {editButton}
        
 
         <Button variant="outlined" className="movie-button">Watch Now</Button>

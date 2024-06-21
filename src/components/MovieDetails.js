@@ -4,13 +4,14 @@ import UndoIcon from '@mui/icons-material/Undo';
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { API } from "../global";
+import { MovieSharp } from "@mui/icons-material";
 
 
 export function MovieDetails() {
   const { movieid } = useParams();
   const navigate = useNavigate()
 
-  const [movie, setMovie] = useState({});
+  const [movies, setMovie] = useState({});
 
   useEffect(() => {
     fetch(`${API}/${movieid}`, {
@@ -21,22 +22,22 @@ export function MovieDetails() {
   }, [])//call only once
 
 
-  // const movie = movieList[movieid]
-  // console.log(movie)
+  // const movies = movieList[movieid]
+  // console.log(movies)
 
 
   return (
     <div className="movie-detail-card">
-      {/* <iframe width="100% " height="430px " src={movie.trailer} title="Bridgerton | Official Trailer | Netflix" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
+      {/* <iframe width="100% " height="430px " src={movies.trailer} title="Bridgerton | Official Trailer | Netflix" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
 
       <div className="movie-spec">
         <h2>
-          {movie.name}
+          {MovieSharp.name}
         </h2>
-        <h3>⭐{movie.rating}</h3>
+        <h3>⭐{movies.rating}</h3>
       </div>
 
-      <p className="movie-summary">{movie.summary}</p>
+      <p className="movie-summary">{movies.summary}</p>
 
       <Button variant="contained" startIcon={<UndoIcon />} onClick={() => navigate(-1)}>
         BACK
