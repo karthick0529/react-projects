@@ -1,0 +1,45 @@
+
+.MuiAppBar-root {
+    background-color: #2196f3; 
+  }
+  
+ 
+  .MuiToolbar-root {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; 
+  }
+  
+ 
+  .MuiButton-root {
+    color: white; 
+    text-transform: none; 
+    margin: 0 10px; 
+  }
+  
+  
+  .MuiTooltip-tooltip {
+    background-color: #333; 
+    color: white; 
+  }
+  
+  
+  .home-button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .home-button span {
+    margin-left: 5px; 
+  }
+  
+  
+  @media (max-width: 600px) {
+    .MuiButton-root {
+      font-size: 12px; 
+      padding: 6px 8px; 
+    }
+  }
+  

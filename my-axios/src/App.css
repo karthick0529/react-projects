@@ -1,0 +1,13 @@
+#outlined-required{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 15rem;
+}
+
+.welcome-message {
+  text-align: center;
+  font-size: 2rem; 
+  color: white; 
+  margin-top: 20px; 
+}
