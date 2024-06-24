@@ -47,9 +47,8 @@ export function MovieList() {
   //     .then((data) => setMovieList(data))
   // }
 
-  useEffect(() => {
-    getMovies();
-    return undefined;
+  useEffect(() => { getMovies();
+    // return undefined;
   }, []);//call only once
 
   console.log(movieList)
