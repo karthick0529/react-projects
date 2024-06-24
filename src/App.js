@@ -1,26 +1,26 @@
 import { AddColor } from "./AddColor";
 import "./App.css";
-import { Routes, Route, Link, useNavigate } from "react-router-dom"
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { MovieList } from "./components/MovieList";
 import { Home } from "./components/Home";
 import { MovieDetails } from "./components/MovieDetails";
 import { NotFoundPage } from "./components/NotFoundPage";
 import { useState, useEffect } from "react";
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import ExampleContext from './components/context/ExampleContext';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import ExampleContext from "./components/context/ExampleContext";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Button from "@mui/material/Button";
 import AddMovie from "./components/AddMovie";
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 import Ref from "./components/hooks/Ref";
 import Reducer from "./components/hooks/Reducer";
 import TicTacToe from "./components/TicTacToe";
 import LifeCycleA from "./components/class/LifeCycleA";
-import {EditMovie} from "./components/EditMovie";
-
+import { EditMovie } from "./components/EditMovie";
+import BasicForm from "./components/formik/BasicForm"
 
 // export const INITIAL_MOVIE_LIST = [
 //   {
@@ -264,13 +264,12 @@ import {EditMovie} from "./components/EditMovie";
 //   }
 // ]
 
-
 export default function App() {
-//Lifting the state up from child componet to parent component
+  //Lifting the state up from child componet to parent component
   const [movieList, setMovieList] = useState([]);
-  const navigate = useNavigate();    
-  const [mode, setMode] = useState("light")
-  
+  const navigate = useNavigate();
+  const [mode, setMode] = useState("light");
+
   //1. creating a context - createTheme
   const darkTheme = createTheme({
     palette: {
@@ -283,39 +282,63 @@ export default function App() {
   //     .then((res) => res.json())
   //     .then((data) => setMovieList(data))
   // },[])
-  
-  
+
   return (
-  
     //2. publisher - provider - context.provider -ThemeProvider
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div className="App">
+        <AppBar position="static" style={{ marginbottomm: "20px" }}>
+          <Toolbar>
+            <Button color="inherit" onClick={() => navigate("/")}>
+              Home
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/movies")}>
+              MovieList
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/add-movie")}>
+              Addmovie
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/add-color")}>
+              AddColor
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/context")}>
+              ExampleContext
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/somewhere")}>
+              Somewhere
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/ref")}>
+              Reference
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/reducer")}>
+              Reducer
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/game")}>
+              TicTacToe
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/class")}>
+              Class
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/basic-form")}>
+              Formik
+            </Button>
 
-      <AppBar position="static" style = {{marginbottomm: "20px"}}>
-      <Toolbar>
+            {/* <Button color="inherit" onClick = {() => setMode(mode === "light" ? "dark": "light")}>{mode === "light" ? "dark": "light"}Mode</Button> */}
+            {/* using MUI Component */}
+            <Button
+              color="inherit"
+              onClick={() => setMode(mode === "light" ? "dark" : "light")}
+              endIcon={
+                mode === "light" ? <Brightness4Icon /> : <Brightness7Icon />
+              }
+            >
+              {mode === "light" ? "dark" : "light"}Mode
+            </Button>
+          </Toolbar>
+        </AppBar>
 
-      <Button color="inherit" onClick = {() => navigate("/")}>Home</Button>
-      <Button color="inherit" onClick = {() => navigate("/movies")}>MovieList</Button>
-      <Button color="inherit" onClick = {() => navigate("/add-movie")}>Addmovie</Button>
-      <Button color="inherit" onClick = {() => navigate("/add-color")}>AddColor</Button>
-      <Button color="inherit" onClick = {() => navigate("/context")}>ExampleContext</Button>
-      <Button color="inherit" onClick = {() => navigate("/somewhere")}>Somewhere</Button>
-      <Button color="inherit" onClick = {() => navigate("/ref")}>Reference</Button>
-      <Button color="inherit" onClick = {() => navigate("/reducer")}>Reducer</Button>
-      <Button color="inherit" onClick = {() => navigate("/game")}>TicTacToe</Button>
-      <Button color="inherit" onClick={() => navigate("/class")}>Class</Button>
-
-      {/* <Button color="inherit" onClick = {() => setMode(mode === "light" ? "dark": "light")}>{mode === "light" ? "dark": "light"}Mode</Button> */}
-      {/* using MUI Component */}
-      <Button color="inherit" onClick = {() => setMode(mode === "light" ? "dark": "light")} 
-      endIcon = {mode === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}>
-      {mode === "light" ? "dark": "light"}Mode</Button>
-
-      </Toolbar>
-      </AppBar>
-
-      {/* <nav>
+        {/* <nav>
         <ul>
           Link change page without refresh
           <li><Link to="/">Home</Link></li>
@@ -326,26 +349,23 @@ export default function App() {
         </ul>
       </nav> */}
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<MovieList />} />
-        <Route path="/add-movie" element={<AddMovie  />} />
-        <Route path="/movies/:movieid" element={<MovieDetails />} />
-        <Route path="/movies/edit/:movieid" element={<EditMovie />} />
-        <Route path="/add-color" element={<AddColor />} />
-        <Route path="/context" element={<ExampleContext />} />
-        <Route path="*" element={<NotFoundPage />} />
-        <Route path="/ref" element={<Ref />} />
-        <Route path="/reducer" element={<Reducer />} />
-        <Route path="/game" element={<TicTacToe />} />
-        <Route path="/class" element={<LifeCycleA />} />
-      </Routes>
-    
-    </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/movies" element={<MovieList />} />
+          <Route path="/add-movie" element={<AddMovie />} />
+          <Route path="/movies/:movieid" element={<MovieDetails />} />
+          <Route path="/movies/edit/:movieid" element={<EditMovie />} />
+          <Route path="/add-color" element={<AddColor />} />
+          <Route path="/context" element={<ExampleContext />} />
+          <Route path="/ref" element={<Ref />} />
+          <Route path="/reducer" element={<Reducer />} />
+          <Route path="/game" element={<TicTacToe />} />
+          <Route path="/class" element={<LifeCycleA />} />
+          <Route path="/basic-form" element={<BasicForm />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </div>
     </ThemeProvider>
-
   );
   //JSX ends
 }
-
-
