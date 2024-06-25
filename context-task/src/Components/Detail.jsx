@@ -11,9 +11,9 @@ import Button from '@mui/material/Button';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
-import './MobileDetailDisc.css';
+import '../styles/Detail.css';
 
-function MobileDetailDisc() {
+function Detail() {
 
   const Navigate = useNavigate();
 
@@ -171,4 +171,4 @@ function MobileDetailDisc() {
   )
 }
 
-export default MobileDetailDisc
+export default Detail

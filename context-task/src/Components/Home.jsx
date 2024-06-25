@@ -12,7 +12,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { useNavigate } from 'react-router-dom';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
-import './Home.css'
+import '../styles/Home.css'
 
 function Home() {
 
@@ -73,13 +73,11 @@ function Home() {
             {ele.category}
           </Typography>
         </Grid>
-        <Grid xs={12} onClick={()=>Navigate(`/mobiledetails/${ele.id}`)}>
           <CardMedia
             sx={{display:"flex", height: 300,padding:"10px 15px"}}
             image={ele.thumbnail}
             title={ele.title}
           />
-        </Grid>
       <CardContent>
         <Grid container spacing={2}>
           <Grid xs={12} md={8} sx={{ display: "flex",justifyContent:"center"}}>

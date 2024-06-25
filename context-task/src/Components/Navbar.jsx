@@ -12,7 +12,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CartPage from './CartPage';
 import Badge from '@mui/material/Badge';
 import {CartContext} from '../App'
-import MobileDetailDisc from './MobileDetailDisc';
+import Detail from './Detail';
 import Home from './Home';
 
 
@@ -70,7 +70,7 @@ function Navbar() {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cartpage" element={<CartPage/>} />
-            <Route path='/mobiledetails/:id' element={<MobileDetailDisc/>}/>
+            <Route path='/mobiledetails/:id' element={<Detail/>}/>
           {/* */}
         </Routes>
     </ThemeProvider>
