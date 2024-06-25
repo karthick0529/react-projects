@@ -6,6 +6,8 @@ HOW IT WORKS🤔
 
 Click Home to navigae to home page where the Smartphone are availble to add to Cart
 
+Click on the Mode option it will change the theme to Dark or Light
+
 Click on Add to Cart button to add the specific item to the cart and Remove from Cart to remove the Item from the Cart.
 
 Click on the Cart icon to disply the items which are added inside the Cart.
