@@ -1,5 +1,7 @@
 Netlify deployment link:
 
+https://chic-kelpie-b199cd.netlify.app/
+
 Mock API:
 
 https://667d089e297972455f632abd.mockapi.io/BOOK_API
