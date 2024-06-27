@@ -1,3 +1,31 @@
+Netlify deployment link:
+
+Mock API:
+
+https://667d089e297972455f632abd.mockapi.io/BOOK_API
+
+https://667d089e297972455f632abd.mockapi.io/AUTHOR_API
+
+Create your api from mockapi.io.
+
+Create your Books Schema in this below format.
+
+id: Object ID
+createdAt: Date
+title: String
+author: Child Resource
+ISBN: Number
+publication: String
+
+Create your Author Schema in this below format.
+
+id: Object ID
+createdAt: Date
+name: String
+birthDate: String
+biography: String
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
