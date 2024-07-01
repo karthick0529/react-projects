@@ -55,16 +55,17 @@ function AddMovie() {
     console.log("newMovie", newMovie);
 
     fetch(`${API}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newMovie),
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newMovie),
     })
-      .then((res) => res.json())
-      .then(() => navigate("/movies"));
-    // setMovieList([...movieList, newMovie])
-  };
+        // setMovieList([...movieList, newMovie])
+        .then((res) => res.json())
+        .then(() => navigate("/movies"));
+
+};
 
   return (
     <form className="add-movie-form" onSubmit={formik.handleSubmit}>
@@ -128,7 +129,7 @@ function AddMovie() {
       <Button
         variant="contained"
         type="submit"
-        onClick={createMovies}
+        // onClick={createMovies}
         // onClick={() => {
         //   const newMovie = {
         //     name,
