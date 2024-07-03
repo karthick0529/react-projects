@@ -1,0 +1,14 @@
+img{
+  height: 40vh !important;
+  width: 100% !important;
+}
+.carousel-control-prev-icon {
+  background-color: maroon; 
+}
+
+.carousel-control-next-icon {
+  background-color: maroon; 
+}
+card-body{
+  background-color: black;
+}
