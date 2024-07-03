@@ -6,7 +6,12 @@ import Parotta from "./Parotta";
 import { Routes,Route,Link } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import Users from "./components/Users"
+import Pizza from "./Pizza";
+import WithToppings from "./WithToppings";
+import HigherOrderComponent from "./HigherOrderComponent";
 
+
+// const EnhancedPizza = WithToppings(Pizza);
 function App() {
   return(
     // <SchoolProvider>
@@ -15,7 +20,7 @@ function App() {
     // <Home />
     // <Parotta />
     <div>
-      <nav>
+      {/* <nav>
         <ul>
           <li>
             <Link to ="/">Home</Link>
@@ -28,7 +33,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />}> </Route>
         <Route path="/users" element={<Users />}> </Route>
-      </Routes>
+      </Routes> */}
+
+      {/* <Pizza toppings="No toppings"></Pizza>
+      <EnhancedPizza></EnhancedPizza> */}
+
+      < HigherOrderComponent />
+
     </div>
   )
 }
