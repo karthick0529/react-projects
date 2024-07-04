@@ -5,6 +5,8 @@ import { increment, decrement } from '../redux/cartSlice';
 import { updateInCart } from '../redux/dataSlice';
 import { Grid, Card, CardContent, CardMedia, Typography, Button, CardActions } from '@mui/material';
 import { Link } from 'react-router-dom';
+import '../styles/Home.css'
+
 
 function Home() {
   const dispatch = useDispatch();

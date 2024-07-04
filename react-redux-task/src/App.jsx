@@ -12,15 +12,17 @@ function App() {
 
   return (
     <CartContext.Provider value={[cartItems, setCartItems]}>
-      <Router>
+      
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cartpage" element={<CartPage />} />
         </Routes>
-      </Router>
+     
     </CartContext.Provider>
   );
 }
 
 export default App;
+
+
