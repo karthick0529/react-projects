@@ -1,69 +1,65 @@
-import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react"
+import { Routes, Route, useNavigate } from "react-router-dom"
 import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
-import { CartContext } from '../App';
+import Home from './Home';
+import CartPage from './CartPage';
+import ProductDetailPage from './ProductDetailPage'
+import Products from './Products';
+import { useSelector } from 'react-redux';
+
 
 function Navbar() {
-  // CartContext to access cart items
-  const cart = useContext(CartContext);
-  const [cartItems, setCartItems] = cart;
 
-  // State for theme mode
-  const [mode, setMode] = useState("light");
-  const navigate = useNavigate();
+  const Navigate = useNavigate()
 
-  const theme = createTheme({
-    palette: {
-      mode: mode,
-    },
-  });
-
-  const tool_bar = {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-between"
-  };
+  const cartItemData = useSelector((state) => state.myCartData.cartItems)
+  
+    const tool_bar = {
+      display: "flex",
+      flexWrap:"wrap",
+      justifyContent: "space-between"
+    }
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <AppBar position="static" style={{ marginBottom: "20px" }}>
-        <Toolbar style={tool_bar}>
-          <div>
-            <Button color="inherit" onClick={() => navigate("/")}>Home</Button>
-            <Button
-              color="inherit"
-              onClick={() => setMode(mode === "dark" ? "light" : "dark")}
-              startIcon={mode === 'dark' ? <Brightness4Icon /> : <Brightness7Icon />}
-            >
-              {mode === "light" ? "Dark" : "Light"} Mode
-            </Button>
-          </div>
-          <div>
-            <Button
-              variant="outlined"
-              endIcon={
-                <Badge badgeContent={cartItems} color="secondary">
-                  <ShoppingCartIcon />
-                </Badge>
-              }
-              onClick={() => navigate("/cartpage")}
-            >
-              Cart Items
-            </Button>
-          </div>
-        </Toolbar>
-      </AppBar>
-    </ThemeProvider>
-  );
+    <>
+    <CssBaseline />
+        <AppBar position="static" style={{ marginBottom: "20px" }}>
+          <Toolbar style={tool_bar}>
+                <div>
+                    <Button color="inherit" onClick={() =>{Navigate("/")} }>Home</Button>
+                    <Button color="inherit" onClick={() =>{Navigate("/mobiles")} }>Products</Button>
+                    {/*  */}
+                </div>
+                <div>
+                    <Button variant="outline" endIcon={
+                        <Badge badgeContent={cartItemData.length} color="secondary">
+                          <ShoppingCartIcon />
+                        </Badge>
+                      } onClick={()=> Navigate("/cartpage")}>
+                        Cart Items
+                    </Button>
+                </div>
+          </Toolbar>
+        </AppBar>
+
+        
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/mobiles" element={<Products />} />
+            <Route path='/mobiledetails/:id' element={<ProductDetailPage/>}/>
+            <Route path="/cartpage" element={<CartPage/>} />
+            
+          {/* */}
+        </Routes>
+    
+    
+    </>
+  )
 }
 
-export default Navbar;
+export default Navbar

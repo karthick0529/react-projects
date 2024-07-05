@@ -1,68 +1,57 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { addItem, removeItem } from '../redux/cartListSlice';
-import { increment, decrement } from '../redux/cartSlice';
-import { updateInCart } from '../redux/dataSlice';
-import { Grid, Card, CardContent, CardMedia, Typography, Button, CardActions } from '@mui/material';
-import { Link } from 'react-router-dom';
-import '../styles/Home.css'
-
+import React from "react";
 
 function Home() {
-  const dispatch = useDispatch();
-  const items = useSelector((state) => state.data);
 
-  const handleAddToCart = (item) => {
-    dispatch(addItem({ ...item, defaultValue: 1 }));
-    dispatch(increment());
-    dispatch(updateInCart({ id: item.id, inCart: true }));
-  };
+  const mainStyle = {
+    display: "flex",
+    flexWrap : "wrap",
+    margin:"5px",
+    paddingLeft:"15px",
+  }
 
-  const handleRemoveFromCart = (item) => {
-    dispatch(removeItem(item.id));
-    dispatch(decrement());
-    dispatch(updateInCart({ id: item.id, inCart: false }));
-  };
+  const sideStyle = {
+    display: "flex",
+    flexWrap : "wrap",
+    flexDirection : "column"
+  }
+
+  const headingStyle = {
+    marginBottom:"3px"
+  }
+
 
   return (
-    <Grid container spacing={2}>
-      {items.map((item) => (
-        <Grid item xs={12} sm={6} md={4} key={item.id}>
-          <Card>
-            <CardMedia component="img" height="140" image={item.thumbnail} alt={item.title} />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {item.title}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {item.description}
-              </Typography>
-              <Typography variant="h6">
-                Price: ${item.price}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              {!item.inCart ? (
-                <Button size="small" color="primary" onClick={() => handleAddToCart(item)}>
-                  Add to Cart
-                </Button>
-              ) : (
-                <Button size="small" color="secondary" onClick={() => handleRemoveFromCart(item)}>
-                  Remove from Cart
-                </Button>
-              )}
-            </CardActions>
-          </Card>
-        </Grid>
-      ))}
-      <Grid item xs={12}>
-        <Link to="/cartpage">
-          <Button variant="contained" color="primary">
-            Go to Cart
-          </Button>
-        </Link>
-      </Grid>
-    </Grid>
+    <div style={mainStyle}>
+      <div style={sideStyle}>
+        <h1 style={headingStyle}>Task :</h1>
+        <p>
+          From the above link get a JSON data and create a cart page with per-item
+          price, per-item quantity, Total quantity and total amount
+        </p>
+      </div>
+      <div style={sideStyle}>
+        <h1 style={headingStyle}>Functionalities Required</h1>
+        <p>
+          Needs to Increase or Decrease the per unit Quantity that should automatically updates the total Quantity and Amount.
+        </p>
+      </div>
+      <div style={sideStyle}>
+        <h1 style={headingStyle}>How To Use :</h1>
+        <ol>
+          <li>Navigate to Product page to add / remove product to cart.</li>
+          <li>In cart page we can select no. of items we need to purcahse.</li>
+          <li>Once we click checkout button - the cart items will get reset and user will redirected to product page</li>
+        </ol>
+      </div>
+      <div style={sideStyle}>
+        <h1 style={headingStyle}>Functionalities used :</h1>
+        <ol>
+          <li>Function to add / remove products to cart were done by redux slice name - MainSlice</li>
+          <li>Store configurations were done store name - store</li>
+          <li>Used useSeclector to get data from redux and used dispact to update the cart Contents</li>
+        </ol>
+      </div>
+    </div>
   );
 }
 

@@ -1,28 +1,13 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import CartPage from './components/CartPage';
-
-// Cart context to manage cart items
-export const CartContext = React.createContext();
+import './App.css'
+import Navbar from './Components/Navbar'
 
 function App() {
-  const [cartItems, setCartItems] = useState(0);
 
   return (
-    <CartContext.Provider value={[cartItems, setCartItems]}>
-      
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cartpage" element={<CartPage />} />
-        </Routes>
-     
-    </CartContext.Provider>
-  );
+    <>
+    <Navbar/>
+    </>
+  )
 }
 
-export default App;
-
-
+export default App
