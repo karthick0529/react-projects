@@ -90,3 +90,4 @@ Follow these steps to create the project:
 Note:
 - For '/api/....' inside axios fetch, it should be res.data.message
 - For other requests, it should be res.data
+- Make sure that the axios fetch links are up and running when executing on the client side.
