@@ -1,5 +1,9 @@
 const express = require('express')
 const app = express()
+const cors = require("cors");
+
+// Use the cors middleware
+app.use(cors());
 
 app.get('/greet', function (req, res) {
   res.send('Hello World, My Name is Karthick')
