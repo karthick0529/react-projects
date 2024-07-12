@@ -1,8 +1,8 @@
 'use strict'
 
 var test = require('tape')
-var txtStr = require('./')()
-var txtBin = require('./')({ binary: true })
+var txtStr = require('.')()
+var txtBin = require('.')({ binary: true })
 
 var obj = {
   String: 'foo',
