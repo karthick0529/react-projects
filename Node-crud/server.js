@@ -22,6 +22,21 @@ app.post('/order',(req,res) => {
     res.send(`Your order has been place sir: ${num}`)
 });
 
+// UPDATE Method it update the API it cannot be seen using localhost, it can seen only using POSTMAN tool
+
+app.put('/order',(req,res) => {
+    const num = req.query.num
+    res.send(`Your order has been place sir: ${num}`)
+});
+
+// DELETE Method it used to delete the API it cannot be seen using localhost, it can seen only using POSTMAN tool
+
+app.delete('/order',(req,res) => {
+
+    res.send(`Your order has been deleted sir:`)
+});
+
+
 app.listen(port,() => {
     console.log(`Server is running at ${port}`)
 })
